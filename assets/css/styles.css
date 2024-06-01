@@ -132,7 +132,9 @@ body {
   left: calc(100% - 28px);
   /* Adjust as needed */
 }
-
+body.dark-mode .skills__icon g {
+  fill: #fdfafa;
+}
 
 h1,
 h2,
