@@ -71,6 +71,11 @@ body {
   color: #fff;
 }
 
+.dark-mode footer {
+  background-color: #222; 
+  color: #fff; 
+}
+
 .dark-mode .skills__data_java,
 .dark-mode .skills__data_selenium,
 .dark-mode .skills__data_appium,
