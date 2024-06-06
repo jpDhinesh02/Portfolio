@@ -201,6 +201,8 @@ img {
 }
 
 .l-header {
+  position: -webkit-sticky;
+  position: sticky;
   width: 100%;
   position: fixed;
   top: 0;
