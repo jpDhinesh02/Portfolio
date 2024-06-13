@@ -72,8 +72,8 @@ body {
 }
 
 .dark-mode footer {
-  background-color: #222; 
-  color: #fff; 
+  background-color: #222;
+  color: #fff;
 }
 
 .dark-mode .skills__data_java,
@@ -119,6 +119,10 @@ body {
   padding-left: 5px;
 }
 
+.toggle {
+  margin-left: 0px;
+}
+
 .theme-toggle::before {
   content: "";
   position: absolute;
@@ -136,12 +140,112 @@ body {
   background-color: #18191a;
   left: calc(100% - 25px);
 }
+
 body.dark-mode .skills__icon g {
   fill: #fdfafa;
 }
+
 body.dark-mode .project_icon g {
   fill: #fdfafa;
 }
+
+/* a clone from joshwcomeau.com 
+ * but this version runs on pure CSS
+ */
+
+.themeToggle {
+  color: black;
+  width: 2em;
+}
+
+.st-sunMoonThemeToggleBtn {
+  position: relative;
+  cursor: pointer;
+  margin-left: 50px
+}
+
+.st-sunMoonThemeToggleBtn .themeToggleInput {
+  opacity: 0;
+  /* width: 65%; */
+  aspect-ratio: 1;
+}
+
+.st-sunMoonThemeToggleBtn svg {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.4s ease;
+  transform: rotate(40deg);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunMoon {
+  transform-origin: center center;
+  transition: inherit;
+  transform: scale(1);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay {
+  transform-origin: center center;
+  transform: scale(0);
+}
+
+.st-sunMoonThemeToggleBtn svg mask>circle {
+  transition: transform 0.64s cubic-bezier(0.41, 0.64, 0.32, 1.575);
+  transform: translate(0px, 0px);
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay2 {
+  animation-delay: 0.05s !important;
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay3 {
+  animation-delay: 0.1s !important;
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay4 {
+  animation-delay: 0.17s !important;
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay5 {
+  animation-delay: 0.25s !important;
+}
+
+.st-sunMoonThemeToggleBtn svg .sunRay5 {
+  animation-delay: 0.29s !important;
+}
+
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked+svg {
+  transform: rotate(90deg);
+}
+
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked+svg mask>circle {
+  transform: translate(16px, -3px);
+}
+
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked+svg .sunMoon {
+  transform: scale(0.55);
+  fill: #fbac13;
+}
+
+.st-sunMoonThemeToggleBtn .themeToggleInput:checked+svg .sunRay {
+  animation: showRay1832 0.4s ease 0s 1 forwards;
+  fill: #fbac13;
+}
+
+@keyframes showRay1832 {
+  0% {
+    transform: scale(0);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
 
 h1,
 h2,
@@ -201,6 +305,7 @@ img {
 }
 
 .l-header {
+
   position: -webkit-sticky;
   position: sticky;
   width: 100%;
@@ -240,6 +345,7 @@ img {
   margin-left: 50px;
 }
 
+
 @media screen and (max-width: 767px) {
   .nav__menu {
     position: fixed;
@@ -248,8 +354,18 @@ img {
     width: 40%;
     height: 100%;
     padding: 2rem;
-    background-color: var(--second-color);
+        background-color: #222;
+        box-shadow: 0px 0px 12px rgb(148, 147, 147);
     transition: 0.5s;
+  }
+
+  .st-sunMoonThemeToggleBtn svg {
+    position: absolute;
+    left: 37px;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease;
+    transform: rotate(40deg);
   }
 }
 
@@ -269,7 +385,7 @@ img {
   position: relative;
 }
 
-.nav__link:hover::after {
+.nav__link:hover:not(.themeToggle.st-sunMoonThemeToggleBtn)::after {
   position: absolute;
   content: "";
   width: 100%;
@@ -435,6 +551,29 @@ img {
 
 }
 
+#resumeButton {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 20px;
+  transition: width 0.3s;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.loading {
+  width: 150px;
+  /* Adjust this width based on the desired button size when loading */
+}
+
+#buttonText {
+  display: inline-block;
+  transition: opacity 0.3s;
+}
+
+
+
+
+
 /* ===== SKILLS =====*/
 .skills__container {
   row-gap: 2rem;
@@ -472,7 +611,7 @@ img {
   height: 3rem;
   font-size: 1rem;
   overflow: hidden;
-  text-overflow: ellipsis; 
+  text-overflow: ellipsis;
 }
 
 
@@ -995,7 +1134,8 @@ img {
 .footer__icon_facebook,
 .footer__icon_insta,
 .footer__icon_twitter,
-.footer__icon_whatsapp,.footer__icon_linkedin {
+.footer__icon_whatsapp,
+.footer__icon_linkedin {
   font-size: 1.5rem;
   color: #fff;
   margin: 0 var(--mb-2);
@@ -1004,6 +1144,20 @@ img {
 .footer__copy {
   font-size: var(--smaller-font-size);
 }
+
+/* .toggle {
+  background-color: red;
+  display: flex;
+  justify-content: start;
+  position: relative;
+
+}
+.togglesvg{
+  background-color: rgb(27, 187, 187);
+  margin-right: 200px;
+
+
+} */
 
 /* ===== MEDIA QUERIES=====*/
 @media screen and (max-width: 320px) {
@@ -1059,7 +1213,7 @@ img {
   }
 
   .dark-mode .nav__menu {
-    background-color: #333;
+    background-color: #222;
     box-shadow: 0px 0px 12px rgb(148, 147, 147);
   }
 
@@ -1118,11 +1272,6 @@ img {
     margin-left: 40px;
   }
 
-  .dark-mode .nav__menu {
-    background-color: #333;
-    box-shadow: 0px 0px 12px rgb(148, 147, 147);
-  }
-
   .theme-toggle {
     height: 23px;
     width: 51px;
@@ -1139,6 +1288,12 @@ img {
     left: calc(100% - 28px);
     left: 24px;
   }
+
+  .st-sunMoonThemeToggleBtn .themeToggleInput {
+    opacity: 0;
+    aspect-ratio: 1;
+  }
+
 }
 
 @media screen and (max-width: 575px) {
@@ -1177,11 +1332,6 @@ img {
     margin-left: 40px;
   }
 
-  .dark-mode .nav__menu {
-    background-color: #333;
-    box-shadow: 0px 0px 12px rgb(148, 147, 147);
-  }
-
   .theme-toggle {
     height: 23px;
     width: 51px;
@@ -1198,12 +1348,25 @@ img {
     left: calc(100% - 28px);
     left: 24px;
   }
+
+  .st-sunMoonThemeToggleBtn .themeToggleInput {
+    opacity: 0;
+    aspect-ratio: 1;
+  }
+
+  .st-sunMoonThemeToggleBtn {
+    position: relative;
+    cursor: pointer;
+    margin-left: -35px;
+  }
 }
 
 @media screen and (min-width: 576px) {
   .home {
-    padding: 4rem 0 2rem;
+    padding: 4rem 35px 2rem;
   }
+
+
 
   .home__social {
     padding-top: 0;
@@ -1212,6 +1375,14 @@ img {
     align-self: flex-end;
     margin-bottom: 50px;
 
+  }
+
+
+  .st-sunMoonThemeToggleBtn {
+    position: relative;
+    cursor: pointer;
+    margin-left: -35px;
+    right: 0px;
   }
 
   .home__social-icon {
@@ -1223,11 +1394,13 @@ img {
     width: 300px;
     bottom: 25%;
   }
+ 
 
   .about__container {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
     text-align: initial;
+    padding-left: 46px;
   }
 
   .skills__container {
@@ -1280,6 +1453,8 @@ img {
     padding-top: 0;
     margin-left: 50px;
   }
+
+ 
 
   .nav__item {
     margin-left: var(--mb-6);
@@ -1343,4 +1518,20 @@ img {
   .home__img {
     width: 450px;
   }
+}
+@media screen and (min-width: 769px) and (max-width: 1800px) {
+  .bd-grid {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home {
+    padding: 8rem 0 2rem; 
+  }
+
+  .home__img {
+    width: 350px; 
+  }
+
+
 }

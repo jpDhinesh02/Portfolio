@@ -11,16 +11,6 @@ const showMenu = (toggleId, navId) => {
 }
 showMenu('nav-toggle', 'nav-menu')
 
-/*==================== REMOVE MENU MOBILE ====================*/
-// const navLink = document.querySelectorAll('.nav__link')
-
-// function linkAction() {
-//     const navMenu = document.getElementById('nav-menu')
-//     // When we click on each nav__link, we remove the show-menu class
-//     navMenu.classList.remove('show')
-// }
-// navLink.forEach(n => n.addEventListener('click', linkAction))
-
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
 
@@ -58,56 +48,54 @@ sr.reveal(' .work__img, .contact__input,.skills__data_java,.skills__data_seleniu
 
 /*===== Download Resume =====*/
 
-document.addEventListener('DOMContentLoaded', function () {
-   
-    document.getElementById('resume').addEventListener('click', function (event) {
-        event.preventDefault(); 
-        const link = document.createElement('a');
-        link.href = 'path/to/local.pdf'; 
-        link.setAttribute('download', 'resume.pdf'); 
-        document.body.appendChild(link);
+document.getElementById('resumeButton').addEventListener('click', function () {
+    var buttonText = document.getElementById('buttonText');
+    var resumeButton = document.getElementById('resumeButton');
 
-        
-        link.click();
+    buttonText.textContent = 'Downloading...';
+    resumeButton.classList.add('loading');
+    setTimeout(function () {
+        buttonText.textContent = 'Resume';
+        resumeButton.classList.remove('loading');
+    }, 2000);
+});
 
-        
-        document.body.removeChild(link);
+/*===== Theme Toogle =====*/
+document.addEventListener('DOMContentLoaded', (event) => {
+    const body = document.querySelector("body");
+    const toggle = document.querySelector("#themeToggle");
+
+    let getMode = localStorage.getItem("mode");
+
+    if (getMode === "dark") {
+        body.classList.add("dark-mode");
+        body.classList.remove("light-mode");
+        toggle.checked = true;
+    } else {
+        body.classList.add("light-mode");
+        body.classList.remove("dark-mode");
+        toggle.checked = false;
+    }
+
+    toggle.addEventListener("change", () => {
+        body.classList.toggle("dark-mode");
+        body.classList.toggle("light-mode");
+
+        if (body.classList.contains("dark-mode")) {
+            localStorage.setItem("mode", "dark");
+        } else {
+            localStorage.setItem("mode", "light");
+        }
+    });
+
+    document.addEventListener('click', function (event) {
+        const navMenu = document.getElementById('nav-menu');
+        const navToggle = document.getElementById('nav-toggle');
+
+        if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {
+            navMenu.classList.remove('show');
+        }
     });
 });
 
-
-
-
-
-/*===== Theme Toogle =====*/
-const body = document.querySelector("body");
-const toggle = document.querySelector(".theme-toggle");
-
-let getMode = localStorage.getItem("mode");
-if (getMode && getMode === "dark") {
-    body.classList.add("dark-mode");
-    toggle.classList.add("active");
-}
-
-toggle.addEventListener("click", () => {
-    body.classList.toggle("dark-mode");
-
-    if (!body.classList.contains("dark-mode")) {
-        localStorage.setItem("mode", "light");
-    } else {
-        localStorage.setItem("mode", "dark");
-    }
-    toggle.classList.toggle("active");
-});
-
-
-
-document.addEventListener('click', function(event) {
-    const navMenu = document.getElementById('nav-menu');
-    const toggle = document.getElementById('nav-toggle');
-
-    if (!navMenu.contains(event.target) && !toggle.contains(event.target)) {
-        navMenu.classList.remove('show');
-    }
-});
 
