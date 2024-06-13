@@ -1523,20 +1523,3 @@ img {
     width: 450px;
   }
 }
-
-@media screen and (min-width: 769px) and (max-width: 1800px) {
-  .bd-grid {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .home {
-    padding: 8rem 0 2rem;
-  }
-
-  .home__img {
-    width: 350px;
-  }
-
-
-}
