@@ -556,7 +556,7 @@ img {
 }
 
 #resumeButton {
-  display: inline-block;
+  display: flex;
   text-align: center;
   padding: 10px 20px;
   transition: width 0.3s;
