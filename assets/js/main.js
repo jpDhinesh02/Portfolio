@@ -49,12 +49,12 @@ const sr = ScrollReveal({
 });
 
 sr.reveal(".home__data, .about__img, .skills__subtitle, .skills__text", {});
-sr.reveal(".home__img, .about__subtitle, .about__text, .skills__img", {
+sr.reveal(".home__img, .about__subtitle, .about__text, .skills__img",{
   delay: 200,
 });
 sr.reveal(".home__social-icon", { interval: 200 });
 sr.reveal(
-  " .work__img, .contact__input,.skills__data_java,.skills__data_selenium,.skills__data_postman,.skills__data_restAssured,.skills__data_appium,.skills__data_jmeter,.skills__data_tcWriting,.skills__data_tcExe,.skills__data_bugReport,.experience__content,.Education__content,.skills__data_accessibility,.Projects__content",
+  " .work__img, .contact__input,.skills__data_java,.skills__data_selenium,.skills__data_postman,.skills__data_restAssured,.skills__data_appium,.skills__data_jmeter,.skills__data_tcWriting,.skills__data_tcExe,.skills__data_bugReport,.experience__content,.Education__content,.skills__data_accessibility,.Projects__content,.footer__title,.footer__social",
   { interval: 200 }
 );
 
