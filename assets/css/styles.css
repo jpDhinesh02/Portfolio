@@ -85,6 +85,7 @@ body {
 .dark-mode .skills__data_tcWriting,
 .dark-mode .skills__data_tcExe,
 .dark-mode .skills__data_bugReport,
+.dark-mode .skills__data_SeleniumGrid,
 .dark-mode .skills__data_accessibility,
 .dark-mode.about__container,
 .dark-mode.experience__content,
@@ -597,6 +598,7 @@ img {
 .skills__data_tcWriting,
 .skills__data_tcExe,
 .skills__data_bugReport,
+.skills__data_SeleniumGrid,
 .skills__data_accessibility {
   display: flex;
   justify-content: space-between;
@@ -653,6 +655,10 @@ img {
 
 .skills__bugReport {
   width: 100%;
+}
+.skills__SeleniumGrid{
+  width: 85%;
+
 }
 
 .skills__testcase {
